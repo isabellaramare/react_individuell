@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const api_key = "1180a9ba87919db2d4242e826baf643f";
 
-
+//https://i.imgur.com/YzVVX4t.jpg
 //https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=1180a9ba87919db2d4242e826baf643f&tags=dog&format=rest
 
 export default class Images extends Component {
@@ -46,7 +46,7 @@ export default class Images extends Component {
     else {
       return (
         <div>
-          <img className="img-thumbnail"
+          <img class="card-img-top"
             src={"https://farm" + 
             items.photos.photo[1].farm + 
             ".staticflickr.com/" + 

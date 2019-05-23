@@ -40,21 +40,23 @@ class Services extends Component {
     else {
       return (
           <div className="container-fluid">
-            <ul className="list-unstyled">
-                {items.map(item => (
-                    <div className="row">
-                        <div className="col-md-12">
-                            <li key={item.Id} className="Service_list">
-                            <h2 class="title">{item.Title}</h2>
-                            <p class="description">{item.Description}</p>
-                            <Images subcategory = {item.SubCategory.Titel}/>
-                            </li>
-                        </div>
-                    </div>
-                    
-                ))}
-            </ul>
-           
+            <div class="card-columns">
+              {items.map(item => (
+                <div class="card bg-light">
+                  <div class="card-body">
+              
+                    <Images subcategory = {item.SubCategory.Titel}/>
+
+                    <h4 class="card-title title">{item.Title}</h4>
+                    <p class="card-text description">{item.Description}</p>
+                    <a href="#" class="card-link">{item.CreatorID}</a>
+                    <a href="#" class="card-link">Another link</a>
+
+                  
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
       );
     }
