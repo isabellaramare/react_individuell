@@ -1,0 +1,39 @@
+.Navbar {
+  background-color: blueviolet;
+  color: white;
+  padding: 10px;
+}
+
+.Navbar_btn {
+  background-color: blueviolet;
+  color: rgb(223, 189, 255);
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+.Navbar_btn:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.col-md-12 {
+  background-color: lightskyblue;
+  margin: auto;
+}
+
+.row {
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 2%;
+}
+
+.title {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+}
+
+.description {
+  font-family: 'Courier New', Courier, monospace;
+}
+
