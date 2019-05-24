@@ -49,7 +49,7 @@ export default class Images extends Component {
       //farm Id, server Id, bildens Id samt "secret" vilket hämtas nedan och läggs i en url som visar upp bilden.
       return (
         <div>
-          <img class="card-img-top"
+          <img className="card-img-top img-responsive"
             src={"https://farm" + 
             items.photos.photo[1].farm + 
             ".staticflickr.com/" + 

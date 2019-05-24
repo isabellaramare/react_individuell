@@ -45,7 +45,9 @@ class Services extends Component {
               <div class="card bg-light">
                 <div class="card-body">
 
-                {item.Picture ? (
+                { 
+                  // Om det redan finns en bild sedan tidigare visas den annars hämtas en från flickr.
+                  item.Picture ? (
                   <img class="car-img-top" src={item.Picture}/>
                 ) : (   
                   <Images subcategory = {item.SubCategory.Titel}/>
