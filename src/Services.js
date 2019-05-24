@@ -39,25 +39,27 @@ class Services extends Component {
     } 
     else {
       return (
-          <div className="container-fluid">
-            <div class="card-columns">
-              {items.map(item => (
-                <div class="card bg-light">
-                  <div class="card-body">
-              
-                    <Images subcategory = {item.SubCategory.Titel}/>
+        <div className="container-fluid">
+          <div class="card-columns">
+            {items.map(item => (
+              <div class="card bg-light">
+                <div class="card-body">
 
-                    <h4 class="card-title title">{item.Title}</h4>
-                    <p class="card-text description">{item.Description}</p>
-                    <a href="#" class="card-link">{item.CreatorID}</a>
-                    <a href="#" class="card-link">Another link</a>
+                {item.Picture ? (
+                  <img class="car-img-top" src={item.Picture}/>
+                ) : (   
+                  <Images subcategory = {item.SubCategory.Titel}/>
+                )}           
 
-                  
-                  </div>
+                  <h4 class="card-title title">{item.Title}</h4>
+                  <p class="card-text description">{item.Description}</p>
+                  <a href="#" class="card-link">{item.CreatorID}</a>
+
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
+        </div>
       );
     }
   }
