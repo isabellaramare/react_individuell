@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Images from './Images';
+import './App.css';
 
 class Services extends Component {
   state = {
@@ -40,21 +41,15 @@ class Services extends Component {
     else {
       return (
         <div className="container-fluid">
-          <div class="card-columns">
+          <div className="card-columns">
             {items.map(item => (
-              <div class="card bg-light">
-                <div class="card-body">
+              <div className="card bg-light">
+                <div className="card-body">
 
-                { 
-                  // Om det redan finns en bild sedan tidigare visas den annars hämtas en från flickr.
-                  item.Picture ? (
-                  <img class="car-img-top" src={item.Picture}/>
-                ) : (   
-                  <Images subcategory = {item.SubCategory.Titel}/>
-                )}           
+                  <img class="card-img-top" src={item.Picture}/>
 
-                  <h4 class="card-title title">{item.Title}</h4>
-                  <p class="card-text description">{item.Description}</p>
+                  <h4 className="card-title title">{item.Title}</h4>
+                  <p className="card-text description">{item.Description}</p>
                   <a href="#" class="card-link">{item.CreatorID}</a>
 
                 </div>
@@ -68,3 +63,12 @@ class Services extends Component {
 }
 
 export default Services;
+
+
+//{ 
+  // Om det redan finns en bild sedan tidigare visas den annars hämtas en från flickr.
+  //item.Picture ? (
+  //<img class="card-img-top" src={item.Picture}/>
+//) : (   
+  //<Images subcategory = {item.SubCategory.Titel}/>
+//)}  

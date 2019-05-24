@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import './App.css';
 
 const api_key = "1180a9ba87919db2d4242e826baf643f";
+
 
 //https://i.imgur.com/YzVVX4t.jpg
 //https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=1180a9ba87919db2d4242e826baf643f&tags=dog&format=rest
@@ -49,7 +51,7 @@ export default class Images extends Component {
       //farm Id, server Id, bildens Id samt "secret" vilket hämtas nedan och läggs i en url som visar upp bilden.
       return (
         <div>
-          <img className="card-img-top img-responsive"
+          <img className="card-img-top service-card-image"
             src={"https://farm" + 
             items.photos.photo[1].farm + 
             ".staticflickr.com/" + 
