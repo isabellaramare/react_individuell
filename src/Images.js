@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 
 const api_key = "1180a9ba87919db2d4242e826baf643f";
-
+var pic_num = 1;
 
 //https://i.imgur.com/YzVVX4t.jpg
 //https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=1180a9ba87919db2d4242e826baf643f&tags=dog&format=rest
@@ -39,6 +39,7 @@ export default class Images extends Component {
   }
 
   render() {
+    
     const { error, isLoaded, items } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -47,19 +48,20 @@ export default class Images extends Component {
       return <div>Loading...</div>;
     } 
     else {
+      pic_num +=1;
       // För att visa upp en specifik bild krävs en url som innehåller 
       //farm Id, server Id, bildens Id samt "secret" vilket hämtas nedan och läggs i en url som visar upp bilden.
       return (
         <div>
           <img className="card-img-top service-card-image"
             src={"https://farm" + 
-            items.photos.photo[1].farm + 
+            items.photos.photo[pic_num].farm + 
             ".staticflickr.com/" + 
-            items.photos.photo[1].server + 
+            items.photos.photo[pic_num].server + 
             "/" + 
-            items.photos.photo[1].id + 
+            items.photos.photo[pic_num].id + 
             "_" + 
-            items.photos.photo[1].secret + 
+            items.photos.photo[pic_num].secret + 
             ".jpg"}>
           </img>
         </div>

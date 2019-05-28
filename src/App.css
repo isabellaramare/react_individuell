@@ -3,6 +3,7 @@
   color: white;
   padding: 10px;
   margin-bottom: 20px;
+  height: 100px;
 }
 
 .Navbar_btn {
@@ -29,6 +30,14 @@
   font-weight: bold;
   color: palegreen;
   margin-top: 10px;
+  margin-bottom: -1px;
+}
+
+.subtitle {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  color: rgb(81, 216, 81);
+  
 }
 
 .description {

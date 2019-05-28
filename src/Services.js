@@ -46,9 +46,16 @@ class Services extends Component {
               <div className="card bg-light">
                 <div className="card-body">
 
-                  <img class="card-img-top" src={item.Picture}/>
+                { 
+                  //Om det redan finns en bild sedan tidigare visas den annars hämtas en från flickr.
+                  item.Picture == "http://hdimages.org/wp-content/uploads/2017/03/placeholder-image10.jpg" ? (
+                    <Images subcategory = {item.SubCategory.Titel}/>
+                  ) : (   
+                    <img class="card-img-top" src={item.Picture}/>
+                )} 
 
                   <h4 className="card-title title">{item.Title}</h4>
+                  <p className="subtitle">{item.SubCategory.Titel}</p>
                   <p className="card-text description">{item.Description}</p>
                   <a href="#" class="card-link">{item.CreatorID}</a>
 
