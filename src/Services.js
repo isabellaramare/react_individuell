@@ -33,32 +33,33 @@ class Services extends Component {
   render() {
     const { error, isLoaded, items } = this.state;
     if (error) {
-      return <div>Error: {error.message}</div>;
+      return <div>Ett fel uppstod: {error.message}</div>;
     } 
     else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return <div>Laddar...</div>;
     } 
     else {
       return (
         <div className="container-fluid">
           <div className="card-columns">
             {items.map(item => (
-              <div className="card bg-light">
+              <div className="card">
                 <div className="card-body">
 
                 { 
-                  //Om det redan finns en bild sedan tidigare visas den annars hämtas en från flickr.
+                  //Om det redan finns en bild sedan tidigare (ej placeholder) visas den annars hämtas en från flickr.
                   item.Picture == "http://hdimages.org/wp-content/uploads/2017/03/placeholder-image10.jpg" ? (
                     <Images subcategory = {item.SubCategory.Titel}/>
                   ) : (   
                     <img class="card-img-top" src={item.Picture}/>
                 )} 
 
-                  <h4 className="card-title title">{item.Title}</h4>
-                  <p className="subtitle">{item.SubCategory.Titel}</p>
+                  <div className="card-header">
+                    <h4 className="card-title title">{item.Title}</h4>
+                    <p className="subtitle">{item.SubCategory.Titel}</p>
+                    <text className="price">{item.Price} kr</text>&emsp;&emsp;
+                  </div>
                   <p className="card-text description">{item.Description}</p>
-                  <a href="#" class="card-link">{item.CreatorID}</a>
-
                 </div>
               </div>
             ))}
@@ -70,12 +71,3 @@ class Services extends Component {
 }
 
 export default Services;
-
-
-//{ 
-  // Om det redan finns en bild sedan tidigare visas den annars hämtas en från flickr.
-  //item.Picture ? (
-  //<img class="card-img-top" src={item.Picture}/>
-//) : (   
-  //<Images subcategory = {item.SubCategory.Titel}/>
-//)}  

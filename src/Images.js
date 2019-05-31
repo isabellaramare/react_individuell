@@ -42,13 +42,14 @@ export default class Images extends Component {
     
     const { error, isLoaded, items } = this.state;
     if (error) {
-      return <div>Error: {error.message}</div>;
+      return <div>Ett fel uppstod: {error.message}</div>;
     } 
     else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return <div>Laddar...</div>;
     } 
     else {
-      pic_num +=1;
+      pic_num = Math.floor(Math.random() * 20);
+    
       // För att visa upp en specifik bild krävs en url som innehåller 
       //farm Id, server Id, bildens Id samt "secret" vilket hämtas nedan och läggs i en url som visar upp bilden.
       return (
