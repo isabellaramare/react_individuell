@@ -10,6 +10,7 @@ class Services extends Component {
     items: []
     };
 
+    //Hämtar annonser från vår webbtjänst
   componentDidMount() {
     axios.get("http://193.10.202.78/AnnonsRestApi/api/Service").then(
       result => {
@@ -18,9 +19,6 @@ class Services extends Component {
           items: result.data
         });
       },
-      // Note: it's important to handle errors here
-      // instead of a catch() block so that we don't swallow
-      // exceptions from actual bugs in components.
       error => {
         this.setState({
           isLoaded: true,
@@ -39,6 +37,7 @@ class Services extends Component {
       return <div>Laddar...</div>;
     } 
     else {
+      // Listan med annonser loopas igenom och visas upp i bootstrap-cards
       return (
         <div className="container-fluid">
           <div className="card-columns">
@@ -47,11 +46,12 @@ class Services extends Component {
                 <div className="card-body">
 
                 { 
-                  //Om det redan finns en bild sedan tidigare (ej placeholder) visas den annars hämtas en från flickr.
-                  item.Picture == "http://hdimages.org/wp-content/uploads/2017/03/placeholder-image10.jpg" ? (
+                  //Om bilden i annonsen är en placeholder-bild hämtas en ny bild från flickr baserat på vilken kategori annonsen har. 
+                  item.Picture === "http://hdimages.org/wp-content/uploads/2017/03/placeholder-image10.jpg" ? (
                     <Images subcategory = {item.SubCategory.Titel}/>
-                  ) : (   
-                    <img class="card-img-top" src={item.Picture}/>
+                  ) : (  
+                  // Om det redan finns en bild visas den. 
+                    <img class="card-img-top" alt="annonsbild" src={item.Picture}/>
                 )} 
 
                   <div className="card-header">

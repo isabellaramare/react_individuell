@@ -5,9 +5,6 @@ import './App.css';
 const api_key = "1180a9ba87919db2d4242e826baf643f";
 var pic_num = 1;
 
-//https://i.imgur.com/YzVVX4t.jpg
-//https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=1180a9ba87919db2d4242e826baf643f&tags=dog&format=rest
-
 export default class Images extends Component {
   state = {
     error: null,
@@ -48,6 +45,7 @@ export default class Images extends Component {
       return <div>Laddar...</div>;
     } 
     else {
+      //Slumpar fram ett nummer för att inte samma bild ska dyka upp på gånger 
       pic_num = Math.floor(Math.random() * 20);
     
       // För att visa upp en specifik bild krävs en url som innehåller 
@@ -55,6 +53,7 @@ export default class Images extends Component {
       return (
         <div>
           <img className="card-img-top service-card-image"
+            alt="annonsbild"
             src={"https://farm" + 
             items.photos.photo[pic_num].farm + 
             ".staticflickr.com/" + 
